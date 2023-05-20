@@ -6,7 +6,7 @@ Meet the Glow-Timer, a 3D-printed, open-source project that brings together the 
 
 ## 3D printable parts
 
-![3D printable model](https://www.printables.com/model/486034-glow-timer-the-10-productivity-tool)
+[3D printable model](https://www.printables.com/model/486034-glow-timer-the-10-productivity-tool)
 
 ## Bill of Materials: 
 
