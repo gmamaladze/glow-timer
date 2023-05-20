@@ -10,15 +10,16 @@
 #define BUZZER_PIN 6
 #define LED_COUNT 12
 
+CRGB colors[] = { CRGB::Green, CRGB::Blue, CRGB::Orange, CRGB::Purple, CRGB::Red };
+
+
 RotaryEncoder encoder(ENCODER_CLK_PIN, ENCODER_DT_PIN);
 CRGB leds[LED_COUNT];
 
 unsigned int ledLevel = 0;
-
 unsigned long timerDuration = 0;
 unsigned long timerStart = 0;
 unsigned int colorIndex = 0;
-CRGB colors[] = { CRGB::Green, CRGB::Blue, CRGB::Orange, CRGB::Purple, CRGB::Red };
 unsigned int colorCount = sizeof(colors) / sizeof(colors[0]);
 
 enum State {
@@ -31,8 +32,6 @@ enum State {
 State currentState = TIMER_SELECT;
 bool prevSwitchState = HIGH;
 
-#define COLOR_CYCLE_TIME 1000
-
 void setLEDs(int level, CRGB color, CRGB dark = CRGB::Black) {
   for (int i = 0; i < LED_COUNT; i++) {
     if (i < level) {
@@ -44,6 +43,7 @@ void setLEDs(int level, CRGB color, CRGB dark = CRGB::Black) {
   FastLED.show();
 }
 
+//Creates a flashung alarm sound asynchronusly without blocking the main loop
 void alarm(CRGB color) {
   if (millis() % 500 > 300 ){
     setLEDs(LED_COUNT, color);
@@ -55,6 +55,7 @@ void alarm(CRGB color) {
   }
 }
 
+//Creates a short click sound
 void click() {
   tone(BUZZER_PIN, 300, 20);  // Play a short beep
 }
@@ -82,7 +83,7 @@ void loop() {
   bool pressed = (prevSwitchState == HIGH && digitalRead(ENCODER_SW_PIN) == LOW);
   prevSwitchState = digitalRead(ENCODER_SW_PIN);
 
-  // Check if rotary encoder has been pressed
+  // Perform state transitions if the button is pressed
   if (pressed) {
     ledLevel = 0;
     setLEDs(0, CRGB::Blue);
@@ -106,6 +107,7 @@ void loop() {
     }
   }
 
+  // Perform state actions
   switch (currentState) {
     case TIMER_SELECT:
       {
