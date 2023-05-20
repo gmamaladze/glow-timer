@@ -14,6 +14,7 @@ Meet the Glow-Timer, a 3D-printed, open-source project that brings together the 
 - LED Ring 5V RGB WS2812B 12-Bit 50mm
 - KY-040 Rotary Encoder Rotary Encoder Module
 - Active Buzzer module with two pins
+- 100 Ohm Resistor
 - 4 Screws  M1.7 x 8 
 - 4 Screws  M1.5 x 4
 
