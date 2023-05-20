@@ -1,17 +1,33 @@
 #include <RotaryEncoder.h>
 #include <FastLED.h>
 
+//---------------------------------------------------------------------------------------------
+//User settings
+//---------------------------------------------------------------------------------------------
+
+//Threre are 12 LEDs in the ring, put the number in seconds you want each LED to represent
+//For example, if you want 12 LEDs to represent 1 hour, then put 3600/12 = 300
 #define SECONDS_PER_STEP 5
 
+//PIN definitions are taken from schematics
+//Numbers must correspond to your actual wiring
 #define ENCODER_DT_PIN 3
 #define ENCODER_CLK_PIN 4
 #define ENCODER_SW_PIN 5
 #define LED_RING_PIN 7
 #define BUZZER_PIN 6
-#define LED_COUNT 12
 
+//Colors represent the type of activity you are timing
+//For example, green for work, blue for break, red for exercise, etc.
+//You can add or remove colors as you like
 CRGB colors[] = { CRGB::Green, CRGB::Blue, CRGB::Orange, CRGB::Purple, CRGB::Red };
 
+//---------------------------------------------------------------------------------------------
+//End of user settings
+//---------------------------------------------------------------------------------------------
+
+//Number of LEDs in the ring
+#define LED_COUNT 12
 
 RotaryEncoder encoder(ENCODER_CLK_PIN, ENCODER_DT_PIN);
 CRGB leds[LED_COUNT];

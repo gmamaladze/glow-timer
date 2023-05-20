@@ -4,6 +4,10 @@ Meet the Glow-Timer, a 3D-printed, open-source project that brings together the 
 
 [![Glow-Timer](doc/img/time-glow-youtube.png)](https://www.youtube.com/watch?v=RIDGBI8uO3s)
 
+## Libraries
+- Rotary Ecoder by Matthias Hertel [github repo](https://github.com/mathertel/RotaryEncoder)
+- FastLED by Daniel Garica [github repo](https://github.com/FastLED/FastLED)
+
 ## 3D printable parts
 
 [3D printable model](https://www.printables.com/model/486034-glow-timer-the-10-productivity-tool)
@@ -32,3 +36,5 @@ Note: almost every part is included in a arduino nano kit so consider buying tha
 
 ## Soldered
 ![Soldered](doc/img/soldered.jpg)
+
+
